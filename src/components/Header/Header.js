@@ -1,88 +1,41 @@
-"use client";
-import { Menu, Group, Center, Burger, Container } from "@mantine/core";
-// import { useDisclosure } from "@mantine/hooks";
-// import { IconChevronDown } from "@tabler/icons-react";
-// import { MantineLogo } from "@mantinex/mantine-logo";
-// import classes from "./HeaderMenu.module.css";
+import Box from "@mui/material/Box";
+import styles from "@/components/Header/Header.module.scss";
+import { Button, Typography } from "@mui/material";
+import Image from "next/image";
 
-const links = [
-  { link: "/about", label: "Features" },
-  {
-    link: "#1",
-    label: "Learn",
-    links: [
-      { link: "/docs", label: "Documentation" },
-      { link: "/resources", label: "Resources" },
-      { link: "/community", label: "Community" },
-      { link: "/blog", label: "Blog" },
-    ],
-  },
-  { link: "/about", label: "About" },
-  { link: "/pricing", label: "Pricing" },
-  {
-    link: "#2",
-    label: "Support",
-    links: [
-      { link: "/faq", label: "FAQ" },
-      { link: "/demo", label: "Book a demo" },
-      { link: "/forums", label: "Forums" },
-    ],
-  },
-];
-
-function Header() {
-  //   const [opened, { toggle }] = useDisclosure(false);
-
-  const items = links.map((link) => {
-    const menuItems = link.links?.map((item) => (
-      <Menu.Item key={item.link}>{item.label}</Menu.Item>
-    ));
-
-    if (menuItems) {
-      return (
-        <Menu
-          key={link.label}
-          trigger='hover'
-          transitionProps={{ exitDuration: 0 }}
-          withinPortal
-        >
-          <Menu.Target>
-            <a href={link.link} onClick={(event) => event.preventDefault()}>
-              <Center>
-                <span>{link.label}</span>
-                {/* <IconChevronDown size='0.9rem' stroke={1.5} /> */}
-              </Center>
-            </a>
-          </Menu.Target>
-          <Menu.Dropdown>{menuItems}</Menu.Dropdown>
-        </Menu>
-      );
-    }
-
-    return (
-      <a
-        key={link.label}
-        href={link.link}
-        onClick={(event) => event.preventDefault()}
-      >
-        {link.label}
-      </a>
-    );
-  });
-
+export default function Header() {
   return (
-    <header>
-      <Container size='md'>
-        <div>
-          {/* <MantineLogo size={28} /> */}
-          <Group gap={5} visibleFrom='sm'>
-            {items}
-          </Group>
-          {/* <Burger opened={opened} onClick={toggle} size='sm' hiddenFrom='sm' /> */}
-        </div>
-      </Container>
-    </header>
+    <Box className={styles["full-width-background"]}>
+      <Box sx={{ textAlign: "center" }}>
+        <Typography component='h1'>Breathwork is Life Changing</Typography>
+        <Typography sx={{ maxWidth: "800px" }}>
+          Embark on a journey of self-discovery and holistic well-being through
+          the profound practice of breathwork. Unlock your potential and achieve
+          a harmonious balance of mind, body, and spirit.
+        </Typography>
+      </Box>
+      <Box sx={{ marginTop: "28px" }}>
+        <Button variant='contained' sx={{ color: "#fff", marginRight: "12px" }}>
+          Book now
+        </Button>
+        <Button variant='outlined' sx={{ color: "#fff" }}>
+          Free discovery call
+        </Button>
+      </Box>
+      <Image
+        src='/header-plant-left.png'
+        width={287}
+        height={400}
+        alt='Logo'
+        className={styles["header-plant-left"]}
+      />
+      <Image
+        src='/header-plant-right.png'
+        width={271}
+        height={310}
+        alt='Logo'
+        className={styles["header-plant-right"]}
+      />
+    </Box>
   );
 }
-
-export default Header;
