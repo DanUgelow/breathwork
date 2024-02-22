@@ -5,22 +5,20 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <Box className={styles["full-width-background"]}>
-      <Box sx={{ textAlign: "center" }}>
+    <Box className={styles["full-width-background"]} id='Home'>
+      <Box sx={{ textAlign: "center", position: "relative", zIndex: 1 }}>
         <Typography component='h1'>Breathwork is Life Changing</Typography>
         <Typography sx={{ maxWidth: "800px" }}>
-          Embark on a journey of self-discovery and holistic well-being through
-          the profound practice of breathwork. Unlock your potential and achieve
-          a harmonious balance of mind, body, and spirit.
+          Experience incredible changes through the profound practice of
+          breathwork. Unlock your potential and achieve a harmonious balance of
+          mind, body, and spirit.
         </Typography>
       </Box>
-      <Box sx={{ marginTop: "28px" }}>
-        <Button variant='contained' sx={{ color: "#fff", marginRight: "12px" }}>
+      <Box sx={{ marginTop: "28px", position: "relative", zIndex: 1 }}>
+        <Button variant='contained' sx={{ marginRight: "12px" }}>
           Book now
         </Button>
-        <Button variant='outlined' sx={{ color: "#fff" }}>
-          Free discovery call
-        </Button>
+        <Button variant='outlined'>Free discovery call</Button>
       </Box>
       <Image
         src='/header-plant-left.png'

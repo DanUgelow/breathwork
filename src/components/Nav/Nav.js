@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -6,6 +5,7 @@ import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Image from "next/image";
+import { Link } from "@mui/material";
 
 const navItems = ["Home", "Benefits", "About", "Services", "Contact"];
 
@@ -33,9 +33,10 @@ export default function Nav() {
             sx={{
               display: "flex",
               alignItems: "center",
+              "> img": { padding: "8px" },
             }}
           >
-            <Image src='/logo-sm-2x.png' width={88} height={88} alt='Logo' />
+            <Image src='/logo-sm-2x.png' width={70} height={70} alt='Logo' />
             <Box
               sx={{
                 paddingLeft: "12px",
@@ -47,7 +48,12 @@ export default function Nav() {
           </Box>
           <Box>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: "#fff" }}>
+              <Button
+                component={Link}
+                href={`#${item}`}
+                key={item}
+                sx={{ color: "#fff" }}
+              >
                 {item}
               </Button>
             ))}

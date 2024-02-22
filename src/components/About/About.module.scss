@@ -1,0 +1,16 @@
+.about-plant-left,
+.about-plant-right {
+  position: absolute;
+
+  z-index: 0;
+}
+
+.about-plant-left {
+  left: 0;
+  bottom: 0;
+}
+
+.about-plant-right {
+  right: 0;
+  top: 0;
+}

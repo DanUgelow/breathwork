@@ -1,12 +1,10 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Montserrat } from "next/font/google";
 import Nav from "@/components/Nav";
 import styles from "@/styles/Home.module.scss";
 import { Box } from "@mui/material";
 import Header from "@/components/Header";
-
-const font = Montserrat({ subsets: ["latin"] });
+import Benefits from "@/components/Benefits";
+import About from "@/components/About";
 
 export default function Home() {
   return (
@@ -20,11 +18,13 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/logo-sm.png' />
       </Head>
-      <div className={font.className}>
+      <div>
         <Nav />
         {/* <main className={`${styles.main} ${font.className}`}> */}
         <main className={styles.main}>
           <Header />
+          <Benefits />
+          <About />
           {/* <Box className={styles["full-width-background"]}>
 
           </Box> */}

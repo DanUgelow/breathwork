@@ -8,11 +8,21 @@ import CssBaseline from "@mui/material/CssBaseline";
 import "@/styles/globals.scss";
 
 const theme = createTheme({
+  typography: {
+    fontFamily: [
+      "Montseratt",
+      "Roboto",
+      '"Helvetica Neue"',
+      "Arial",
+      "-apple-system",
+    ].join(","),
+  },
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
           padding: "14px 31px",
+          color: "#fff",
         },
       },
     },
