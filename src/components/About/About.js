@@ -28,7 +28,7 @@ export default function About() {
       sx={{
         backgroundColor: "#EEF7FF",
         position: "relative",
-        padding: "60px 0",
+        padding: "60px 12px",
       }}
       id='About'
     >

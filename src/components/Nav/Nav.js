@@ -42,8 +42,12 @@ export default function Nav() {
                 paddingLeft: "12px",
               }}
             >
-              <Typography color='#4D92C2'>Vital Flow</Typography>
-              <Typography color='#fff'>Breathwork</Typography>
+              <Typography sx={{ fontWeight: "500" }} color='#4D92C2'>
+                Vital Flow
+              </Typography>
+              <Typography sx={{ fontWeight: "500" }} color='#fff'>
+                Breathwork
+              </Typography>
             </Box>
           </Box>
           <Box>

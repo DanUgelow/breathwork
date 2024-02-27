@@ -23,10 +23,7 @@ const benefitsArr = [
 
 export default function Benefits() {
   return (
-    <Box
-      sx={{ textAlign: "center", padding: "0 24px", padding: "60px 0" }}
-      id='Benefits'
-    >
+    <Box sx={{ textAlign: "center", padding: "60px 12px" }} id='Benefits'>
       <Typography
         component='h2'
         sx={{ fontSize: "36px", fontWeight: 500, margin: "0 0 60px" }}
