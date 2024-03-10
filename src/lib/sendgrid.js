@@ -16,3 +16,5 @@ export const sendEmail = async ({ from, text }) => {
     throw error;
   }
 };
+
+export const runtime = "edge";
