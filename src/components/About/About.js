@@ -79,11 +79,26 @@ export default function About() {
               left: "-100px",
             }}
           >
-            <Typography sx={{ fontSize: "24px", fontWeight: 500 }}>
+            {/* <Typography sx={{ fontSize: "24px", fontWeight: 500 }}>
               Did you know
             </Typography>
             <Typography>
               We take around 20,0000 breaths and process 30 lbs of air per day
+            </Typography> */}
+            <Typography>
+              22 minutes of SOMA Breathwork can produce effects that are
+              comparable to traditional psychedelic experiences
+              <Box
+                href='https://s3.us-east-1.wasabisys.com/homeoffloadprod/2019/09/Can-Breathing-Be-a-Psychedelic.pdf'
+                target='_blank'
+                component='a'
+                sx={{
+                  textDecoration: "none",
+                }}
+              >
+                {" "}
+                based on self-reported data and brainwave activity changes
+              </Box>
             </Typography>
           </Box>
           <Image src='/about-hero-2x.jpg' width={530} height={500} alt='' />

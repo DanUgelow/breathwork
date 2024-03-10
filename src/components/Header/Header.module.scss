@@ -3,7 +3,8 @@
   background-image: url("/hero-2x.jpg"); // Adjust the path to your background image
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 74vh; // Adjust height as needed
+  height: 74vh; // Adjust height as needed
+  max-height: 900px;
   background-position: center;
   // width: 100%;
   display: flex;
