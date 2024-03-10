@@ -1,5 +1,7 @@
 import { sendEmail } from "@/lib/sendgrid";
 
+export const runtime = "edge";
+
 const sendEmailAPI = async (req, res) => {
   const payload = req.body;
 
