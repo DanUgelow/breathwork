@@ -1,7 +1,5 @@
 import Head from "next/head";
 import Nav from "@/components/Nav";
-import styles from "@/styles/Home.module.scss";
-import { Box } from "@mui/material";
 import Header from "@/components/Header";
 import Benefits from "@/components/Benefits";
 import About from "@/components/About";
@@ -22,7 +20,7 @@ export default function Home() {
       </Head>
       <div>
         <Nav />
-        <main className={styles.main}>
+        <main>
           <Header />
           <Benefits />
           <About />

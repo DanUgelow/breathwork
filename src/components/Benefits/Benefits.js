@@ -6,18 +6,22 @@ const benefitsArr = [
   {
     icon: "/immune-system.png",
     heading: "Strengthen the immune system",
-    copy: "Lorem ipsum",
+    copy: "Mindful breathing can help fight the progression of autoimmune diseases and sickness.",
   },
   {
     icon: "/anxiety.png",
     heading: "Reduce depression and anxiety",
-    copy: "Lorem ipsum",
+    copy: "Erratic breathing leads to erratic thinking. Smooth consistent breathing leads to coherent thought.",
   },
-  { icon: "/heart.png", heading: "Improve heart health", copy: "Lorem ipsum" },
+  {
+    icon: "/heart.png",
+    heading: "Improve heart health",
+    copy: "Deep breathing can improve blood glucose & lower blood pressure.",
+  },
   {
     icon: "/body.png",
     heading: "Restore and balance the nervous system",
-    copy: "Lorem ipsum",
+    copy: "Rythmic breathing immediately signals the parasympathetic nervous system to calm the body down.",
   },
 ];
 

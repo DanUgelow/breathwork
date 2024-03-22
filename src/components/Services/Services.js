@@ -6,20 +6,25 @@ import styles from "@/components/Services/Services.module.scss";
 const benefitsArr = [
   {
     heading: "1 on 1 Private Session",
+    duration: "1 hour",
+    cost: "60",
     copy: "Conducted over zoom and involves the core modality of SOMA Breath which is used to release stress, boost the immune system, and release trauma. If there's a consultation beforehand the practice will be modified to fit the needs of the individual.",
     button: "Book now",
   },
   {
     heading: "Free Consultation",
+    duration: "15 minutes",
     copy: "Connect to learn more about booking a session, ask questions, and learn how breathwork can help you.",
     button: "Book now",
   },
   {
     heading: "Group Classes",
+    duration: "1 hour",
     copy: "These classes involve movement, sound, and breathing to boost mood, energy, release stress, and can result in profound euphoric experiences. Contact for more details or to book for a group.",
   },
   {
     heading: "Corporate classes",
+    duration: "TBD",
     copy: "Help your coworkers and employees completely destress. Contact for more details.",
   },
 ];
@@ -66,11 +71,14 @@ export default function Services() {
             }}
           >
             <Box>
-              <Typography
-                sx={{ fontSize: "20px", fontWeight: 500, marginBottom: "12px" }}
-              >
-                {item.heading}
+              <Typography sx={{ fontSize: "20px", fontWeight: 500 }}>
+                {item.heading} {item?.cost && `- $${item.cost}`}
               </Typography>
+              {item?.duration && (
+                <Typography sx={{ marginBottom: "12px" }}>
+                  Duration: {item.duration}
+                </Typography>
+              )}
               <Typography>{item.copy}</Typography>
             </Box>
             {item?.button && <Button variant='contained'>{item.button}</Button>}

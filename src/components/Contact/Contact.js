@@ -9,20 +9,24 @@ import {
   Typography,
   OutlinedInput,
   FormGroup,
-  Snackbar,
   Alert,
   CircularProgress,
+  Fade,
 } from "@mui/material";
 import Image from "next/image";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import styles from "@/components/Contact/Contact.module.scss";
 
 export default function Services() {
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const [emailValue, setEmailValue] = useState("");
   const [messageValue, setMessageValue] = useState("");
   const [emailError, setEmailError] = useState();
   const [messageError, setMessageError] = useState();
   const [successMessage, setSucccessMessage] = useState();
   const [isLoading, setIsLoading] = useState(false);
+  const [alertVisibility, setAlertVisibility] = useState(false);
+  const [formError, setFormError] = useState("");
 
   const validateEmail = () => {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailValue)) {
@@ -33,8 +37,6 @@ export default function Services() {
   };
 
   const handleChange = (e) => {
-    setSucccessMessage();
-
     if (e.target.id === "email") {
       setEmailValue(e.target.value);
       setEmailError();
@@ -48,7 +50,8 @@ export default function Services() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setSucccessMessage();
+    setFormError("");
+    setSucccessMessage("");
 
     if (!emailValue) {
       setEmailError("Please enter an email");
@@ -70,10 +73,13 @@ export default function Services() {
 
     setIsLoading(true);
 
+    const recaptchaToken = await executeRecaptcha("handleSubmit");
+
     const res = await fetch("/api/send-email", {
       body: JSON.stringify({
         from: emailValue,
         text: messageValue,
+        recaptchaToken,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -81,17 +87,19 @@ export default function Services() {
       method: "POST",
     });
 
-    const response = await res.json();
+    const response = await res;
 
-    if (response.error) {
+    if (!response.ok) {
       setIsLoading(false);
-      setSucccessMessage();
+      setFormError("An unknown error occurred. Please try again later");
+      setAlertVisibility(true);
 
       return;
     }
 
     setIsLoading(false);
-    setSucccessMessage(response.message);
+    setSucccessMessage("Email sent successfully");
+    setAlertVisibility(true);
     setEmailValue("");
     setMessageValue("");
   };
@@ -123,10 +131,17 @@ export default function Services() {
         >
           Contact
         </Typography>
-        {successMessage && (
+        <Fade
+          in={Boolean(alertVisibility)}
+          timeout={{ enter: 300, exit: 5000 }}
+          addEndListener={() => {
+            setTimeout(() => {
+              setAlertVisibility(false);
+            }, 2000);
+          }}
+        >
           <Alert
-            // onClose={handleClose}
-            severity='success'
+            severity={successMessage ? "success" : "error"}
             variant='filled'
             sx={{
               width: "100%",
@@ -135,9 +150,9 @@ export default function Services() {
               marginBottom: "20px",
             }}
           >
-            {successMessage}
+            {successMessage || formError}
           </Alert>
-        )}
+        </Fade>
         <FormGroup
           sx={{
             width: "100%",
@@ -184,7 +199,6 @@ export default function Services() {
             </FormHelperText>
           </FormControl>
           <Button
-            // disabled={true}
             disabled={isLoading}
             variant='contained'
             sx={{ width: "100%", maxWidth: "320px", margin: "0 auto" }}

@@ -1,10 +1,10 @@
 import * as React from "react";
-// import PropTypes from 'prop-types';
+
 import Head from "next/head";
 import { AppCacheProvider } from "@mui/material-nextjs/v14-pagesRouter";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-// import theme from '../src/theme';
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import "@/styles/globals.scss";
 
 const theme = createTheme({
@@ -37,6 +37,7 @@ const theme = createTheme({
 
 export default function App(props) {
   const { Component, pageProps } = props;
+  const recaptchaKey = process?.env?.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
   return (
     <AppCacheProvider {...props}>
@@ -44,9 +45,19 @@ export default function App(props) {
         <meta name='viewport' content='initial-scale=1, width=device-width' />
       </Head>
       <ThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <CssBaseline />
-        <Component {...pageProps} />
+        <GoogleReCaptchaProvider
+          reCaptchaKey={recaptchaKey ?? "NOT DEFINED"}
+          scriptProps={{
+            async: false,
+            defer: false,
+            appendTo: "head",
+            nonce: undefined,
+          }}
+        >
+          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+          <CssBaseline />
+          <Component {...pageProps} />
+        </GoogleReCaptchaProvider>
       </ThemeProvider>
     </AppCacheProvider>
   );
