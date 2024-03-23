@@ -10,22 +10,35 @@ const benefitsArr = [
     cost: "60",
     copy: "Conducted over zoom and involves the core modality of SOMA Breath which is used to release stress, boost the immune system, and release trauma. If there's a consultation beforehand the practice will be modified to fit the needs of the individual.",
     button: "Book now",
+    href: "https://calendly.com/dan-ugelow",
   },
   {
     heading: "Free Consultation",
     duration: "15 minutes",
     copy: "Connect to learn more about booking a session, ask questions, and learn how breathwork can help you.",
     button: "Book now",
+    href: "https://calendly.com/dan-ugelow",
   },
   {
     heading: "Group Classes",
     duration: "1 hour",
-    copy: "These classes involve movement, sound, and breathing to boost mood, energy, release stress, and can result in profound euphoric experiences. Contact for more details or to book for a group.",
+    copy: (
+      <>
+        These classes involve movement, sound, and breathing to boost mood,
+        energy, release stress, and can result in profound euphoric experiences.{" "}
+        <a href='#Contact'>Contact</a> for more details or to book for a group.
+      </>
+    ),
   },
   {
     heading: "Corporate classes",
     duration: "TBD",
-    copy: "Help your coworkers and employees completely destress. Contact for more details.",
+    copy: (
+      <>
+        Help your coworkers and employees completely destress.{" "}
+        <a href='#Contact'>Contact</a> for more details.
+      </>
+    ),
   },
 ];
 
@@ -81,7 +94,16 @@ export default function Services() {
               )}
               <Typography>{item.copy}</Typography>
             </Box>
-            {item?.button && <Button variant='contained'>{item.button}</Button>}
+            {item?.button && (
+              <Button
+                variant='contained'
+                component='a'
+                href={item.href}
+                target='_blank'
+              >
+                {item.button}
+              </Button>
+            )}
           </Box>
         ))}
       </Box>

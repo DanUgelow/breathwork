@@ -15,10 +15,23 @@ export default function Header() {
         </Typography>
       </Box>
       <Box sx={{ marginTop: "28px", position: "relative", zIndex: 1 }}>
-        <Button variant='contained' sx={{ marginRight: "12px" }}>
+        <Button
+          variant='contained'
+          sx={{ marginRight: "12px" }}
+          component='a'
+          href='https://calendly.com/dan-ugelow'
+          target='_blank'
+        >
           Book now
         </Button>
-        <Button variant='outlined'>Free discovery call</Button>
+        <Button
+          variant='outlined'
+          component='a'
+          href='https://calendly.com/dan-ugelow'
+          target='_blank'
+        >
+          Free discovery call
+        </Button>
       </Box>
       <Image
         src='/header-plant-left.png'
