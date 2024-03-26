@@ -1,28 +1,15 @@
 import Box from "@mui/material/Box";
 import styles from "@/components/About/About.module.scss";
-import { Button, Typography } from "@mui/material";
+import { Typography, useMediaQuery } from "@mui/material";
 import Image from "next/image";
-
-const benefitsArr = [
-  {
-    icon: "/immune-system.png",
-    heading: "Strengthen the immune system",
-    copy: "Lorem ipsum",
-  },
-  {
-    icon: "/anxiety.png",
-    heading: "Reduce depression and anxiety",
-    copy: "Lorem ipsum",
-  },
-  { icon: "/heart.png", heading: "Improve heart health", copy: "Lorem ipsum" },
-  {
-    icon: "/body.png",
-    heading: "Restore and balance the nervous system",
-    copy: "Lorem ipsum",
-  },
-];
+import { useTheme } from "@mui/material/styles";
 
 export default function About() {
+  const theme = useTheme();
+
+  const isSMUp = useMediaQuery(theme.breakpoints.up("sm"));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+
   return (
     <Box
       sx={{
@@ -38,82 +25,115 @@ export default function About() {
           justifyContent: "space-between",
           maxWidth: "1250px",
           margin: "0 auto",
+          flexDirection: {
+            xs: "column",
+            md: "row",
+          },
+          alignItems: {
+            sm: "center",
+            md: "inherit",
+          },
         }}
       >
-        <Box sx={{ position: "relative", zIndex: 1, maxWidth: "500px" }}>
+        <Box
+          sx={{
+            position: "relative",
+            zIndex: 1,
+            maxWidth: "500px",
+            marginRight: {
+              xs: "0",
+              sm: "8px",
+            },
+          }}
+        >
           <Typography
             component='h2'
             sx={{ fontSize: "36px", fontWeight: 500, margin: "60px 0 24px" }}
           >
-            About Breathwork
+            About
+          </Typography>
+          <Typography sx={{ marginBottom: "24px" }}>
+            My name is Dan and I&apos;m a dedicated breathwork instructor. I
+            started{" "}
+            <Box sx={{ color: "#4D92C2" }} component='span'>
+              Vital Flow
+            </Box>{" "}
+            as way to share my knowledge and experience to help others on their
+            journey.
           </Typography>
           <Typography sx={{ marginBottom: "24px" }}>
             The modality of breathwork I teach is derived from SOMA Breath which
-            is a complete holistic system of breathwork techniques.
-          </Typography>
-          <Typography>
-            Depending on the session and needs of the individual there can be
-            body activation, chanting, intention setting and rhythmical
-            breathing. It’s a dose of nervous system exercises that lead to
-            coherence, flow state, balanced moods, and healing.
+            is a complete holistic system of techniques. It&apos;s a dose of
+            nervous system exercises that lead to coherence, flow state,
+            balanced moods, and healing.
           </Typography>
         </Box>
         <Box
           sx={{
             position: "relative",
             zIndex: 1,
-            marginRight: "20px",
+            marginRight: { xs: "0", sm: "20px" },
             "> img": { borderRadius: "12px" },
           }}
         >
           <Box
             sx={{
               width: "100%",
-              maxWidth: "417px",
-              height: "189px",
+              maxWidth: { xs: "417px", sm: "300px" },
               borderRadius: "8px",
               backgroundColor: "#fff",
               padding: "24px",
-              position: "absolute",
-              bottom: "40px",
-              left: "-100px",
+              position: { xs: "static", sm: "absolute" },
+              bottom: { sm: "50%", md: "30px", lg: "40px" },
+              left: { sm: "300px", md: "-50px", lg: "-100px" },
+              margin: {
+                xs: "50px auto 0",
+                sm: "0",
+              },
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            {/* <Typography sx={{ fontSize: "24px", fontWeight: 500 }}>
-              Did you know
-            </Typography>
-            <Typography>
-              We take around 20,0000 breaths and process 30 lbs of air per day
-            </Typography> */}
-            <Typography>
-              22 minutes of SOMA Breathwork can produce effects that are
-              comparable to traditional psychedelic experiences
-              <Box
-                href='https://s3.us-east-1.wasabisys.com/homeoffloadprod/2019/09/Can-Breathing-Be-a-Psychedelic.pdf'
-                target='_blank'
-                component='a'
-                sx={{
-                  textDecoration: "none",
-                }}
-              >
-                {" "}
-                based on self-reported data and brainwave activity changes
+            <Typography
+              sx={{
+                fontSize: "14px",
+              }}
+            >
+              <Box component='span'>
+                22 minutes of SOMA Breathwork can produce effects that are
+                comparable to traditional psychedelic experiences
+                <Box
+                  href='https://s3.us-east-1.wasabisys.com/homeoffloadprod/2019/09/Can-Breathing-Be-a-Psychedelic.pdf'
+                  target='_blank'
+                  component='a'
+                  sx={{
+                    textDecoration: "none",
+                  }}
+                >
+                  {" "}
+                  based on self-reported data and brainwave activity changes
+                </Box>
               </Box>
             </Typography>
           </Box>
-          <Image src='/about-hero-2x.jpg' width={530} height={500} alt='' />
+          {isSMUp && (
+            <Box sx={{ marginTop: { sm: "50px" } }}>
+              <Image src='/about-hero-2x.jpg' width={530} height={500} alt='' />
+            </Box>
+          )}
         </Box>
         <Image
           src='/about-plant-left.png'
-          width={240}
-          height={244}
+          width={isDesktop ? 240 : 140}
+          height={isDesktop ? 244 : 144}
           alt=''
           className={styles["about-plant-left"]}
         />
         <Image
           src='/about-plant-right.png'
-          width={269}
-          height={304}
+          width={isDesktop ? 269 : 169}
+          height={isDesktop ? 304 : 204}
           alt=''
           className={styles["about-plant-right"]}
         />

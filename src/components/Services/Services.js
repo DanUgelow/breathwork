@@ -32,7 +32,7 @@ const benefitsArr = [
   },
   {
     heading: "Corporate classes",
-    duration: "TBD",
+    duration: "cantact for quote",
     copy: (
       <>
         Help your coworkers and employees completely destress.{" "}

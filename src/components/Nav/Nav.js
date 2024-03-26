@@ -27,6 +27,17 @@ export default function Nav() {
         <Toolbar
           sx={{
             justifyContent: "space-between",
+            flexDirection: {
+              xs: "column",
+              md: "row",
+            },
+            padding: {
+              xs: "0 8px",
+              sm: "0 16px",
+            },
+            maxWidth: "1300px",
+            width: "100%",
+            margin: "0 auto",
           }}
         >
           <Box
@@ -42,21 +53,37 @@ export default function Nav() {
                 paddingLeft: "12px",
               }}
             >
-              <Typography sx={{ fontWeight: "500" }} color='#4D92C2'>
+              <Typography
+                sx={{
+                  fontWeight: "500",
+                }}
+                color='#4D92C2'
+              >
                 Vital Flow
               </Typography>
-              <Typography sx={{ fontWeight: "500" }} color='#fff'>
+              <Typography
+                sx={{
+                  fontWeight: "500",
+                }}
+                color='#fff'
+              >
                 Breathwork
               </Typography>
             </Box>
           </Box>
-          <Box>
+          <Box sx={{ textAlign: "center" }}>
             {navItems.map((item) => (
               <Button
                 component={Link}
                 href={`#${item}`}
                 key={item}
-                sx={{ color: "#fff" }}
+                sx={{
+                  color: "#fff",
+                  fontSize: { xs: "12px", sm: "14px" },
+                  padding: {
+                    xs: "10px 28px",
+                  },
+                }}
               >
                 {item}
               </Button>

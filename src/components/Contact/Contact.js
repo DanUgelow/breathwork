@@ -12,12 +12,15 @@ import {
   Alert,
   CircularProgress,
   Fade,
+  useMediaQuery,
 } from "@mui/material";
 import Image from "next/image";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import styles from "@/components/Contact/Contact.module.scss";
+import { useTheme } from "@mui/material/styles";
 
 export default function Services() {
+  const theme = useTheme();
   const { executeRecaptcha } = useGoogleReCaptcha();
   const [emailValue, setEmailValue] = useState("");
   const [messageValue, setMessageValue] = useState("");
@@ -27,6 +30,8 @@ export default function Services() {
   const [isLoading, setIsLoading] = useState(false);
   const [alertVisibility, setAlertVisibility] = useState(false);
   const [formError, setFormError] = useState("");
+
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
   const validateEmail = () => {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailValue)) {
@@ -126,7 +131,7 @@ export default function Services() {
             textAlign: "center",
             fontSize: "36px",
             fontWeight: 500,
-            margin: "0 0 60px",
+            margin: "0 0 12px",
           }}
         >
           Contact
@@ -210,8 +215,8 @@ export default function Services() {
       </Box>
       <Image
         src='/contact-plant-left.png'
-        width={271}
-        height={310}
+        width={isDesktop ? 271 : 171}
+        height={isDesktop ? 310 : 210}
         alt=''
         className={styles["contact-plant-left"]}
       />

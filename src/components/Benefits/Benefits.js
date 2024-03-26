@@ -11,7 +11,7 @@ const benefitsArr = [
   {
     icon: "/anxiety.png",
     heading: "Reduce depression and anxiety",
-    copy: "Erratic breathing leads to erratic thinking. Smooth consistent breathing leads to coherent thought.",
+    copy: "Erratic breathing leads to erratic thinking while smooth consistent breathing leads to coherent thought.",
   },
   {
     icon: "/heart.png",
@@ -21,7 +21,7 @@ const benefitsArr = [
   {
     icon: "/body.png",
     heading: "Restore and balance the nervous system",
-    copy: "Rythmic breathing immediately signals the parasympathetic nervous system to calm the body down.",
+    copy: "Rythmic breathing immediately signals the parasympathetic nervous system to calm the mind and the body.",
   },
 ];
 
@@ -38,12 +38,23 @@ export default function Benefits() {
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          maxWidth: "1100px",
+          maxWidth: "1200px",
           margin: "0 auto",
+          flexDirection: {
+            xs: "column",
+            md: "row",
+          },
+          alignItems: {
+            xs: "center",
+            md: "inherit",
+          },
         }}
       >
         {benefitsArr.map((item, i) => (
-          <Box key={i} sx={{ textAlign: "center", maxWidth: 275 }}>
+          <Box
+            key={i}
+            sx={{ textAlign: "center", maxWidth: 275, margin: "12px" }}
+          >
             <Image src={item.icon} width={60} height={60} alt='' />
             <Typography sx={{ fontSize: "20px" }}>
               <strong>{item.heading}</strong>
