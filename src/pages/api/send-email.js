@@ -21,7 +21,7 @@ const sendEmailAPI = async (req) => {
         personalizations: [
           {
             to: [{ email: "dan.ugelow@gmail.com" }],
-            subject: `Vital Flow - From ${from}`,
+            subject: `From ${from}`,
           },
         ],
         content: [{ type: "text/plain", value: text }],
