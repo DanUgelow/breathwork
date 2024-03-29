@@ -17,7 +17,7 @@ export default function Header() {
           position: "relative",
           zIndex: 1,
           marginTop: {
-            xs: "152px",
+            xs: "180px",
             sm: 0,
           },
         }}
