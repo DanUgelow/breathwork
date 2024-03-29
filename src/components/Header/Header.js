@@ -11,7 +11,17 @@ export default function Header() {
 
   return (
     <Box className={styles["full-width-background"]} id='Home'>
-      <Box sx={{ textAlign: "center", position: "relative", zIndex: 1 }}>
+      <Box
+        sx={{
+          textAlign: "center",
+          position: "relative",
+          zIndex: 1,
+          marginTop: {
+            xs: "152px",
+            sm: 0,
+          },
+        }}
+      >
         <Typography
           component='h1'
           sx={{
