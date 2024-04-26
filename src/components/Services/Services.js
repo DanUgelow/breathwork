@@ -7,7 +7,7 @@ const benefitsArr = [
   {
     heading: "1 on 1 Private Session",
     duration: "1 hour",
-    cost: "60",
+    cost: "Free, optional donation",
     copy: "Conducted over zoom and involves the core modality of SOMA Breath which is used to release stress, boost the immune system, and release trauma. If there's a consultation beforehand the practice will be modified to fit the needs of the individual.",
     button: "Book now",
     href: "https://calendly.com/dan-ugelow",
@@ -76,7 +76,7 @@ export default function Services() {
               borderRadius: "24px",
               margin: "10px",
               textAlign: "left",
-              minHeight: "275px",
+              minHeight: "290px",
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
@@ -84,12 +84,17 @@ export default function Services() {
             }}
           >
             <Box>
-              <Typography sx={{ fontSize: "20px", fontWeight: 500 }}>
-                {item.heading} {item?.cost && `- $${item.cost}`}
+              <Typography sx={{ fontSize: "24px", fontWeight: 500 }}>
+                {item.heading}
               </Typography>
+              {item?.cost && (
+                <Typography>
+                  <strong>Cost:</strong> {item.cost}
+                </Typography>
+              )}
               {item?.duration && (
                 <Typography sx={{ marginBottom: "12px" }}>
-                  Duration: {item.duration}
+                  <strong>Duration:</strong> {item.duration}
                 </Typography>
               )}
               <Typography>{item.copy}</Typography>
