@@ -62,9 +62,12 @@ export default function About() {
             journey.
           </Typography>
           <Typography sx={{ marginBottom: "24px" }}>
-            The modality of breathwork I teach is derived from SOMA Breath which
-            is a complete holistic system of techniques. It&apos;s a dose of
-            nervous system exercises that lead to coherence, flow state,
+            The modality of breathwork I teach is derived from{" "}
+            <a href='https://www.somabreath.com/#a_aid=danu' target='_blank'>
+              SOMA Breath
+            </a>{" "}
+            which is a complete holistic system of techniques. It&apos;s a dose
+            of nervous system exercises that lead to coherence, flow state,
             balanced moods, and healing.
           </Typography>
         </Box>
@@ -102,7 +105,8 @@ export default function About() {
             >
               <Box component='span'>
                 22 minutes of SOMA Breathwork can produce effects that are
-                comparable to traditional psychedelic experiences
+                comparable to traditional{" "}
+                <strong>psychedelic experiences</strong>
                 <Box
                   href='https://s3.us-east-1.wasabisys.com/homeoffloadprod/2019/09/Can-Breathing-Be-a-Psychedelic.pdf'
                   target='_blank'
