@@ -54,7 +54,7 @@ export default function Header() {
             },
           }}
           component='a'
-          href='https://calendly.com/dan-ugelow'
+          href='https://calendly.com/dan-ugelow/breathwork'
           target='_blank'
         >
           Book now
@@ -69,7 +69,7 @@ export default function Header() {
               sm: "inherit",
             },
           }}
-          href='https://calendly.com/dan-ugelow'
+          href='https://calendly.com/dan-ugelow/free-consultation'
           target='_blank'
         >
           Free discovery call

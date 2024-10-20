@@ -10,14 +10,14 @@ const benefitsArr = [
     cost: "Free, optional donation",
     copy: "Conducted over zoom and involves the core modality of SOMA Breath which is used to release stress, boost the immune system, and release trauma. If there's a consultation beforehand the practice will be modified to fit the needs of the individual.",
     button: "Book now",
-    href: "https://calendly.com/dan-ugelow",
+    href: "https://calendly.com/dan-ugelow/breathwork",
   },
   {
     heading: "Free Consultation",
     duration: "15 minutes",
     copy: "Connect to learn more about booking a session, ask questions, and learn how breathwork can help you.",
     button: "Book now",
-    href: "https://calendly.com/dan-ugelow",
+    href: "https://calendly.com/dan-ugelow/free-consultation'",
   },
   {
     heading: "Group Classes",
