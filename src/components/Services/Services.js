@@ -17,7 +17,7 @@ const benefitsArr = [
     duration: "15 minutes",
     copy: "Connect to learn more about booking a session, ask questions, and learn how breathwork can help you.",
     button: "Book now",
-    href: "https://calendly.com/dan-ugelow/free-consultation'",
+    href: "https://calendly.com/dan-ugelow/free-consultation",
   },
   {
     heading: "Group Classes",
