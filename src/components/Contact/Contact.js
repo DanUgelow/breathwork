@@ -136,7 +136,31 @@ export default function Services() {
         >
           Contact
         </Typography>
-        <Fade
+        <Box
+          sx={{
+            marginLeft: "12px",
+            marginRight: "12px",
+          }}
+        >
+          <Button
+            className={styles["button-secondary"]}
+            variant='outlined'
+            component='a'
+            sx={{
+              width: {
+                xs: "100%",
+                sm: "inherit",
+              },
+              margin: "24px auto",
+              maxWidth: "220px",
+            }}
+            href='https://calendly.com/dan-ugelow/free-consultation'
+            target='_blank'
+          >
+            Free discovery call
+          </Button>
+        </Box>
+        {/* <Fade
           in={Boolean(alertVisibility)}
           timeout={{ enter: 300, exit: 5000 }}
           addEndListener={() => {
@@ -157,8 +181,8 @@ export default function Services() {
           >
             {successMessage || formError}
           </Alert>
-        </Fade>
-        <FormGroup
+        </Fade> */}
+        {/* <FormGroup
           sx={{
             width: "100%",
             backgroundColor: "#EEF7FF",
@@ -211,7 +235,7 @@ export default function Services() {
           >
             {isLoading ? <CircularProgress /> : "Submit"}
           </Button>
-        </FormGroup>
+        </FormGroup> */}
       </Box>
       <Image
         src='/contact-plant-left.png'
