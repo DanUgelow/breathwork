@@ -138,21 +138,20 @@ export default function Services() {
         </Typography>
         <Box
           sx={{
-            marginLeft: "12px",
-            marginRight: "12px",
+            textAlign: "center",
+            margin: "24px 12px",
           }}
         >
           <Button
             className={styles["button-secondary"]}
-            variant='outlined'
+            variant='contained'
             component='a'
             sx={{
               width: {
                 xs: "100%",
                 sm: "inherit",
               },
-              margin: "24px auto",
-              maxWidth: "220px",
+              maxWidth: "320px",
             }}
             href='https://calendly.com/dan-ugelow/free-consultation'
             target='_blank'
